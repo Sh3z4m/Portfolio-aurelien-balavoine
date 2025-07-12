@@ -1,4 +1,3 @@
-/* Reset de base */
 * {
   margin: 0;
   padding: 0;
@@ -7,45 +6,29 @@
 
 html, body {
   height: 100%;
-  /* oll-behavior: smooth; */
+  overflow: hidden; /* important : pour forcer JS à gérer le scroll */
   font-family: sans-serif;
 }
 
-/* Conteneur principal en scroll vertical */
 .container {
   height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  overflow: hidden;
 }
 
-/* Sections = 1 écran complet */
 section {
   scroll-snap-align: start;
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  text-align: center;
+  font-size: 3rem;
   color: white;
-  font-size: 1.8rem;
+  transition: background 0.5s ease;
 }
 
-/* Styles spécifiques pour chaque page */
-.intro {
-  background: #1f1f1f;
-}
-.about {
-  background: #2a2a2a;
-}
-.projects {
-  background: #333;
-}
-.skills {
-  background: #444;
-}
-.contact {
-  background: #555;
-}
+.intro { background: #1f1f1f; }
+.about { background: #2a2a2a; }
+.projects { background: #333; }
+.skills { background: #444; }
+.contact { background: #555; }

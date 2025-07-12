@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mon Portfolio</title>
+  <title>Portfolio Scroll</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -11,60 +11,50 @@
 <div class="container">
   <section class="intro">
     <h1>Bienvenue</h1>
-    <p>Je suis un développeur passionné par le web.</p>
   </section>
 
   <section class="about">
-    <h1>À propos de moi</h1>
-    <p>Je suis spécialisé en développement frontend et backend.</p>
+    <h1>À propos</h1>
   </section>
 
   <section class="projects">
     <h1>Projets</h1>
-    <p>Voici quelques-uns de mes projets récents...</p>
   </section>
 
   <section class="skills">
     <h1>Compétences</h1>
-    <p>HTML, CSS, JavaScript, Python, Flask, React...</p>
   </section>
 
   <section class="contact">
     <h1>Contact</h1>
-    <p>contact@monsite.dev</p>
   </section>
 </div>
 
-</body>
-</html>
-
 <script>
-  document.addEventListener('wheel', handleScroll, { passive: false });
-
+  const sections = document.querySelectorAll('section');
   let isScrolling = false;
 
-  function handleScroll(e) {
-    e.preventDefault();
+  let currentSectionIndex = 0;
+
+  window.addEventListener('wheel', (e) => {
     if (isScrolling) return;
 
-    const delta = Math.sign(e.deltaY);
-    const sections = document.querySelectorAll('section');
-    const currentScroll = window.scrollY;
-    const viewportHeight = window.innerHeight;
-
-    let nextIndex = Math.round(currentScroll / viewportHeight) + delta;
-
-    nextIndex = Math.max(0, Math.min(sections.length - 1, nextIndex));
+    if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+      currentSectionIndex++;
+    } else if (e.deltaY < 0 && currentSectionIndex > 0) {
+      currentSectionIndex--;
+    } else {
+      return;
+    }
 
     isScrolling = true;
-
-    window.scrollTo({
-      top: nextIndex * viewportHeight,
-      behavior: 'smooth'
-    });
+    sections[currentSectionIndex].scrollIntoView({ behavior: 'smooth' });
 
     setTimeout(() => {
       isScrolling = false;
-    }, 1000); // ← durée en ms (1s)
-  }
+    }, 1200); // Durée du scroll (ralenti)
+  }, { passive: false });
 </script>
+
+</body>
+</html>
