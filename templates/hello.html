@@ -63,5 +63,53 @@
   }, { passive: false });
 </script>
 
+<script>
+  const sections = document.querySelectorAll('section');
+  let currentSectionIndex = 0;
+  let isScrolling = false;
+
+  function showArrowDelayed(section) {
+    const arrow = section.querySelector('.arrow');
+    if (!arrow) return;
+    arrow.classList.remove('visible');
+    setTimeout(() => {
+      arrow.classList.add('visible');
+    }, 2000); // 2 secondes
+  }
+
+  window.addEventListener('wheel', (e) => {
+    if (isScrolling) return;
+
+    if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+      currentSectionIndex++;
+    } else if (e.deltaY < 0 && currentSectionIndex > 0) {
+      currentSectionIndex--;
+    } else {
+      return;
+    }
+
+    isScrolling = true;
+
+    const targetSection = sections[currentSectionIndex];
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+
+    // Masquer toutes les flèches
+    document.querySelectorAll('.arrow').forEach(a => a.classList.remove('visible'));
+
+    showArrowDelayed(targetSection);
+
+    setTimeout(() => {
+      isScrolling = false;
+    }, 1200);
+  }, { passive: false });
+
+// Affiche la flèche de la première section au chargement
+window.addEventListener('DOMContentLoaded', () => {
+  showArrowDelayed(sections[0]);
+});
+</script>
+
+
 </body>
 </html>
+
