@@ -16,7 +16,7 @@
   <div class="content-box">
     <h1>Aurélien Balavoine</h1>
     <p style="font-size: 40px;">Administrateur Systèmes & Réseaux | Auto-Entrepreneur</p>
-      <div class="arrow">&#x2193;</div> <!-- flèche vers le bas -->
+    <div class="arrow">&#x2193;</div>
   </div>
 </section>
 
@@ -61,6 +61,34 @@
       isScrolling = false;
     }, 1200); // Durée du scroll (ralenti)
   }, { passive: false });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll(".section");
+  let activeIndex = -1;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const section = entry.target;
+        const arrow = section.querySelector('.arrow');
+
+        // Masquer toutes les autres flèches
+        document.querySelectorAll('.arrow').forEach(a => a.classList.remove('visible'));
+
+        // Afficher la flèche après 2s
+        setTimeout(() => {
+          // Vérifie que la section est toujours au centre
+          if (section === document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2)?.closest('section')) {
+            arrow.classList.add('visible');
+          }
+        }, 2000);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  sections.forEach(sec => observer.observe(sec));
+});
+
 </script>
 
 
