@@ -27,7 +27,11 @@ section {
   transition: background 0.5s ease;
 }
 
-.intro { background: #1f1f1f; }
+.intro { 
+  background: url('../images/ubalavoine.jpeg') no-repeat center center;
+  background-size: cover;
+  color: white;
+ }
 .about { background: #2a2a2a; }
 .projects { background: #333; }
 .skills { background: #444; }
