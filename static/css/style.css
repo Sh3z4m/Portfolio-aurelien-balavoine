@@ -61,3 +61,28 @@ section {
 .projects { background: #333; }
 .skills { background: #444; }
 .contact { background: #555; }
+
+
+.arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  animation: bounce 1s infinite;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* Animation de rebond */
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Affichage visible après délai */
+.arrow.visible {
+  opacity: 1;
+}
