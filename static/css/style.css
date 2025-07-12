@@ -63,16 +63,18 @@ section {
 .contact { background: #555; }
 
 
-.gif-letter {
+.video-letter {
   position: relative;
   display: inline-block;
+  font-size: 2rem; /* Ajuste selon la taille du texte */
 }
 
-.gif-on-letter {
+.video-on-letter {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1em;    /* même taille que la lettre */
+  width: 1em;
   height: 1em;
-  pointer-events: none;  /* pour que le gif ne bloque pas la sélection de texte */
+  pointer-events: none; /* Pour ne pas bloquer la sélection du texte */
 }
+

@@ -14,11 +14,16 @@
     <img src="{{ url_for('static', filename='images/ubalavoine-left-rogned.jpeg') }}" alt="Image Intro">
   </div>
   <div class="content-box">
-    <h1>
-  Aurél<span class="gif-letter">i
-    <img src="{{ url_for('static', filename='images/i-letter.gif') }}" alt="gif" class="gif-on-letter" />
+<h1>
+  Aurél<span class="video-letter">
+    i
+    <video autoplay muted playsinline width="16" height="16" class="video-on-letter">
+      <source src="{{ url_for('static', filename='images/i-letter.webm') }}" type="video/webm">
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
   </span>en Balavoine
 </h1>
+
 
     <p style="font-size: 40px;">Administrateur Systèmes & Réseaux | Auto-Entrepreneur<br>
   </div>
