@@ -1,48 +1,51 @@
-/* style.css */
-body, html {
+/* Reset de base */
+* {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  box-sizing: border-box;
+}
+
+html, body {
   height: 100%;
+  scroll-behavior: smooth;
+  font-family: sans-serif;
 }
 
+/* Conteneur principal en scroll vertical */
 .container {
-  width: 100vw;
   height: 100vh;
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth; /* ajoute le scroll fluide */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
+/* Sections = 1 écran complet */
 section {
-  flex: none;
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  scroll-snap-align: center;
-  font-size: 3rem;
+  padding: 2rem;
+  text-align: center;
   color: white;
+  font-size: 1.8rem;
 }
 
-section:nth-of-type(1) {
-  background-color: rgb(28, 28, 28);
+/* Styles spécifiques pour chaque page */
+.intro {
+  background: #1f1f1f;
 }
-
-section:nth-of-type(2) {
-  background-color: rgb(38, 38, 38);
+.about {
+  background: #2a2a2a;
 }
-
-section:nth-of-type(3) {
-  background-color: rgb(48, 48, 48);
+.projects {
+  background: #333;
 }
-
-section:nth-of-type(4) {
-  background-color: rgb(58, 58, 58);
+.skills {
+  background: #444;
 }
-
-section:nth-of-type(5) {
-  background-color: rgb(68, 68, 68);
+.contact {
+  background: #555;
 }

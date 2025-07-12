@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello Flask</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <title>Mon Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
 <div class="container">
-  <section>
-    <h1>Page 1</h1>
+  <section class="intro">
+    <h1>Bienvenue</h1>
+    <p>Je suis un développeur passionné par le web.</p>
   </section>
-  <section>
-    <h1>Page 2</h1>
+
+  <section class="about">
+    <h1>À propos de moi</h1>
+    <p>Je suis spécialisé en développement frontend et backend.</p>
   </section>
-  <section>
-    <h1>Page 3</h1>
+
+  <section class="projects">
+    <h1>Projets</h1>
+    <p>Voici quelques-uns de mes projets récents...</p>
   </section>
-  <section>
-    <h1>Page 4</h1>
+
+  <section class="skills">
+    <h1>Compétences</h1>
+    <p>HTML, CSS, JavaScript, Python, Flask, React...</p>
   </section>
-  <section>
-    <h1>Page 5</h1>
+
+  <section class="contact">
+    <h1>Contact</h1>
+    <p>contact@monsite.dev</p>
   </section>
 </div>
 
