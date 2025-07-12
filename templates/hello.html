@@ -37,3 +37,34 @@
 
 </body>
 </html>
+
+<script>
+  document.addEventListener('wheel', handleScroll, { passive: false });
+
+  let isScrolling = false;
+
+  function handleScroll(e) {
+    e.preventDefault();
+    if (isScrolling) return;
+
+    const delta = Math.sign(e.deltaY);
+    const sections = document.querySelectorAll('section');
+    const currentScroll = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    let nextIndex = Math.round(currentScroll / viewportHeight) + delta;
+
+    nextIndex = Math.max(0, Math.min(sections.length - 1, nextIndex));
+
+    isScrolling = true;
+
+    window.scrollTo({
+      top: nextIndex * viewportHeight,
+      behavior: 'smooth'
+    });
+
+    setTimeout(() => {
+      isScrolling = false;
+    }, 1000); // ← durée en ms (1s)
+  }
+</script>
