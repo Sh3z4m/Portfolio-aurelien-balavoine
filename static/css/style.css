@@ -65,9 +65,6 @@ section {
 
 .arrow {
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 2rem;
   color: white;
   opacity: 0;
@@ -76,9 +73,6 @@ section {
   transition: opacity 0.5s ease;
 }
 
-.arrow.visible {
-  opacity: 1;
-}
 
 @keyframes bounce {
   0%, 100% {
