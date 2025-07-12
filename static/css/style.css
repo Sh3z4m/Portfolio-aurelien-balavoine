@@ -72,7 +72,7 @@ section {
 .video-on-letter {
   position: absolute;
   top: 0;
-  left: 5;
+  left: 4.5;
   width: 1em;
   height: 1em;
   transform: scale(5.5); /* grossit la vidéo de 50% */
