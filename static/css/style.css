@@ -75,6 +75,9 @@ section {
   left: 0;
   width: 1em;
   height: 1em;
-  pointer-events: none; /* Pour ne pas bloquer la sélection du texte */
+  transform: scale(1.5); /* grossit la vidéo de 50% */
+  transform-origin: center;
+  pointer-events: none;
 }
+
 
