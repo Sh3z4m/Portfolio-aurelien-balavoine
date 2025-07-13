@@ -90,6 +90,7 @@ section {
             position: relative;
             animation: moveUpDown 2s infinite alternate;
             margin-top: 30%;
+            margin-left:35%;
         }
 
         @keyframes moveUpDown {
