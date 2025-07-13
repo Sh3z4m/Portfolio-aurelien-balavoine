@@ -326,3 +326,17 @@ section {
 .wave-right-full.fast {
   animation-duration: 1s !important;
 }
+
+.skills {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  height: 100vh; /* ou la hauteur que tu veux */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 5px black; /* pour rendre le texte plus lisible */
+}
