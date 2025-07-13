@@ -81,3 +81,22 @@ section {
 }
 
 
+.arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 40px solid black;
+            position: relative;
+            animation: moveUpDown 2s infinite alternate;
+            margin: 50px auto;
+        }
+
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
