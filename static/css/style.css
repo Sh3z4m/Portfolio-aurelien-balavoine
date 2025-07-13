@@ -295,3 +295,26 @@ section {
     background-position-x: 150px;
   }
 }
+
+/* Vibration de l’image au survol */
+@keyframes vibration {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(-2px, 2px) rotate(-1deg); }
+  40%  { transform: translate(-2px, -2px) rotate(1deg); }
+  60%  { transform: translate(2px, 2px) rotate(1deg); }
+  80%  { transform: translate(2px, -2px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.center-image.vibrate {
+  animation: vibration 0.1s infinite;
+}
+
+/* Accélération animation onde */
+.wave-left-full.fast {
+  animation-duration: 1s !important;
+}
+
+.wave-right-full.fast {
+  animation-duration: 1s !important;
+}
