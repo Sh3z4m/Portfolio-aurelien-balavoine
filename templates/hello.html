@@ -212,26 +212,27 @@
 
 
 <script>
-  // Sélection des éléments
-  const centerImage = document.querySelector('.center-image');
-  const waveLeft = document.querySelector('.wave-left-full');
-  const waveRight = document.querySelector('.wave-right-full');
-  const cards = document.querySelectorAll('.card');
+  document.addEventListener('DOMContentLoaded', () => {
+    const centerImage = document.querySelector('.center-image');
+    const waveLeft = document.querySelector('.wave-left-full');
+    const waveRight = document.querySelector('.wave-right-full');
+    const cards = document.querySelectorAll('.card');
 
-  // Au survol d'une carte, vibration + accélération des ondes
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      centerImage.classList.add('vibrate');
-      waveLeft.classList.add('fast');
-      waveRight.classList.add('fast');
-    });
-    card.addEventListener('mouseleave', () => {
-      centerImage.classList.remove('vibrate');
-      waveLeft.classList.remove('fast');
-      waveRight.classList.remove('fast');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        centerImage.classList.add('vibrate');
+        waveLeft.classList.add('fast');
+        waveRight.classList.add('fast');
+      });
+      card.addEventListener('mouseleave', () => {
+        centerImage.classList.remove('vibrate');
+        waveLeft.classList.remove('fast');
+        waveRight.classList.remove('fast');
+      });
     });
   });
 </script>
+
 
 
 </body>
