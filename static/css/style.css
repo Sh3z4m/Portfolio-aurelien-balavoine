@@ -114,6 +114,7 @@ section {
     }
 
     .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       background-color: #f5f5dc;
       border-radius: 10px;
       padding: 20px;
@@ -132,14 +133,7 @@ section {
       transform: rotateY(90deg);
       transition: opacity 0.6s, transform 0.6s;
     }
-
-    .card:hover {
-  transform: scale(1.05) translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 10; /* pour qu’elle soit au-dessus des autres */
-}
-
+    
 
     /* Classe ajoutée à l’apparition pour lancer l’animation */
     .animate-flip {
@@ -158,9 +152,13 @@ section {
       100% { transform: scale(1); }
     }
 
-    .card:hover:not(.zoom-animation) {
-      transform: scale(1.03);
-    }
+.card:hover:not(.zoom-animation) {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10;
+}
+
 
     /* Popup */
     .popup-overlay {
