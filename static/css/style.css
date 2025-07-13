@@ -224,3 +224,78 @@ section {
 .projects h1 {
   margin: 0; /* supprimer marges par défaut */
 }
+
+
+.header-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  height: 120px;
+  position: relative;
+}
+
+/* Conteneurs des ondes pour un meilleur contrôle */
+.wave-container {
+  width: 150px;
+  height: 80px;
+  overflow: hidden; /* cache les débordements de l'animation */
+  position: relative;
+}
+
+/* Onde gauche */
+.wave-left {
+  position: absolute;
+  width: 300%; /* assez large pour animation fluide */
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="150" height="80" viewBox="0 0 150 80" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="white" stroke-width="3" d="M0 40 Q 25 0 50 40 T 100 40 T 150 40" /></svg>') repeat-x;
+  background-size: 150px 80px;
+  animation: waveAnimLeft 3s linear infinite;
+}
+
+/* Onde droite - même animation, miroir horizontal */
+.wave-right {
+  position: absolute;
+  width: 300%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="150" height="80" viewBox="0 0 150 80" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="white" stroke-width="3" d="M0 40 Q 25 0 50 40 T 100 40 T 150 40" /></svg>') repeat-x;
+  background-size: 150px 80px;
+  animation: waveAnimRight 3s linear infinite;
+  transform: scaleX(-1);
+}
+
+/* Animation pour onde gauche (déplacement de la texture vers la gauche) */
+@keyframes waveAnimLeft {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -150px;
+  }
+}
+
+/* Animation pour onde droite (déplacement texture vers la droite) */
+@keyframes waveAnimRight {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 150px;
+  }
+}
+
+/* Image centrale */
+.center-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-image {
+  height: 100px;
+  object-fit: contain;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  background-color: white;
+  border-radius: 12px;
+}
