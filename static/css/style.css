@@ -223,6 +223,26 @@ section {
   overflow: visible;   /* pour que les ondes animées ne soient pas coupées */
 }
 
+.projects .bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.3); /* assombrit la vidéo */
+  pointer-events: none; /* ne gêne pas les clics */
+}
+
+/* Pour que le contenu soit au-dessus */
+.projects > *:not(.bg-video) {
+  position: relative;
+  z-index: 1;
+}
+
 .projects h1 {
   margin: 0; /* supprimer marges par défaut */
 }
@@ -324,3 +344,19 @@ section {
 .wave-right-full.fast {
   animation-duration: 1s !important;
 }
+
+.skills {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  height: 100vh; /* ou la hauteur que tu veux */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 5px black; /* pour rendre le texte plus lisible */
+}
+
+
