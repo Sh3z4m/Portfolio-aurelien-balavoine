@@ -209,3 +209,18 @@ section {
       .arrow-left { left: 10px; }
       .arrow-right { right: 10px; }
     }
+
+.projects {
+  background: #333;
+  height: 100vh; /* pleine hauteur */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centre verticalement */
+  align-items: center;     /* centre horizontalement */
+  gap: 2rem; /* espace entre titre et cartes */
+  padding: 0 2rem; /* optionnel, un peu de marge latérale */
+}
+
+.projects h1 {
+  margin: 0; /* supprimer marges par défaut */
+}
