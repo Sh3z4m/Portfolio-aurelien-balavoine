@@ -108,6 +108,7 @@ section {
       gap: 20px;
       overflow-x: auto;
       padding-bottom: 10px;
+      font-size: 10px;
     }
 
     .card {
