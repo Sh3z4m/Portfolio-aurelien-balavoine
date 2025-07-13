@@ -255,7 +255,7 @@ section {
   left: 0;
   top: 0;
   width: 50vw;
-  height: 120px;
+  height: 100px;
   background: url('data:image/svg+xml;utf8,<svg width="150" height="120" viewBox="0 0 150 80" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="white" stroke-width="3" d="M0 40 Q 25 0 50 40 T 100 40 T 150 40" /></svg>') repeat-x;
   background-size: 150px 120px;
   animation: waveAnimLeftFull 5s linear infinite;
@@ -268,7 +268,7 @@ section {
   right: 0;
   top: 0;
   width: 50vw;
-  height: 120px;
+  height: 100px;
   background: url('data:image/svg+xml;utf8,<svg width="150" height="120" viewBox="0 0 150 80" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="white" stroke-width="3" d="M0 40 Q 25 0 50 40 T 100 40 T 150 40" /></svg>') repeat-x;
   background-size: 150px 120px;
   animation: waveAnimRightFull 5s linear infinite;
