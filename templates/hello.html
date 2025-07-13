@@ -221,13 +221,9 @@
     cards.forEach(card => {
       card.addEventListener('mouseenter', () => {
         centerImage.classList.add('vibrate');
-        waveLeft.classList.add('fast');
-        waveRight.classList.add('fast');
       });
       card.addEventListener('mouseleave', () => {
         centerImage.classList.remove('vibrate');
-        waveLeft.classList.remove('fast');
-        waveRight.classList.remove('fast');
       });
     });
   });
