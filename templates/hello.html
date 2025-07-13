@@ -112,10 +112,30 @@
 </script>
 
   <script>
+    const cardContainer = document.getElementById('cardContainer');
+    const cards = document.querySelectorAll('.card');
+
+    // Intersection Observer pour lancer animation flip à l’apparition
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cards.forEach((card, i) => {
+            setTimeout(() => {
+              card.classList.add('animate-flip');
+            }, i * 200);
+          });
+          obs.unobserve(cardContainer);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(cardContainer);
+
+    // Popup data
     const popup = document.getElementById('popup');
     const popupBody = document.getElementById('popupBody');
 
-    const cards = [
+    const cardDetails = [
       {
         title: "Carte 1",
         content: "Voici les détails complets de la carte 1. On peut y mettre des textes, images, liens..."
@@ -147,23 +167,23 @@
     }
 
     function updatePopupContent() {
-      const card = cards[currentIndex];
+      const card = cardDetails[currentIndex];
       popupBody.innerHTML = `<h2>${card.title}</h2><p>${card.content}</p>`;
     }
 
     function nextCard() {
-      currentIndex = (currentIndex + 1) % cards.length;
+      currentIndex = (currentIndex + 1) % cardDetails.length;
       updatePopupContent();
     }
 
     function prevCard() {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      currentIndex = (currentIndex - 1 + cardDetails.length) % cardDetails.length;
       updatePopupContent();
     }
 
-    document.querySelectorAll('.card').forEach(card => {
+    // Zoom animation + ouverture popup
+    cards.forEach(card => {
       card.addEventListener('click', () => {
-        // Ajoute la classe zoom, puis ouvre le popup après l'anim
         card.classList.add('zoom-animation');
         setTimeout(() => {
           card.classList.remove('zoom-animation');
@@ -177,7 +197,6 @@
       if (e.target === popup) closePopup();
     });
   </script>
-
 </body>
 </html>
 
