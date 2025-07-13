@@ -114,7 +114,6 @@ section {
     }
 
     .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       background-color: #f5f5dc;
       border-radius: 10px;
       padding: 20px;
@@ -152,11 +151,12 @@ section {
       100% { transform: scale(1); }
     }
 
-.card:hover:not(.zoom-animation) {
-  transform: scale(1.05) translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+.card.animate-flip:hover:not(.zoom-animation) {
+  transform: rotateY(0deg) scale(1.05) translateZ(0);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+  z-index: 1000;
+  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 10;
 }
 
 
