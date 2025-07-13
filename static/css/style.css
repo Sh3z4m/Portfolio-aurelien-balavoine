@@ -89,7 +89,7 @@ section {
             border-top: 40px solid white;
             position: relative;
             animation: moveUpDown 2s infinite alternate;
-            margin: 50px auto;
+            margin-top: 30%;
         }
 
         @keyframes moveUpDown {
