@@ -37,7 +37,36 @@
 </section>
 
   <section class="about">
-    <h1>À propos</h1>
+    <h1>Projets</h1>
+
+      <div class="card-container" id="cardContainer">
+    <div class="card" data-index="0">
+      <h3>Carte 1</h3>
+      <p>Aperçu rapide</p>
+    </div>
+    <div class="card" data-index="1">
+      <h3>Carte 2</h3>
+      <p>Autre description</p>
+    </div>
+    <div class="card" data-index="2">
+      <h3>Carte 3</h3>
+      <p>Encore une carte</p>
+    </div>
+    <div class="card" data-index="3">
+      <h3>Carte 4</h3>
+      <p>Informations supplémentaires</p>
+    </div>
+  </div>
+
+      <!-- Popup -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">×</button>
+      <button class="arrow arrow-left" onclick="prevCard()">‹</button>
+      <div id="popupBody"></div>
+      <button class="arrow arrow-right" onclick="nextCard()">›</button>
+    </div>
+  </div>
   </section>
 
   <section class="projects">
@@ -80,6 +109,74 @@
 
 
 </script>
+
+  <script>
+    const popup = document.getElementById('popup');
+    const popupBody = document.getElementById('popupBody');
+
+    const cards = [
+      {
+        title: "Carte 1",
+        content: "Voici les détails complets de la carte 1. On peut y mettre des textes, images, liens..."
+      },
+      {
+        title: "Carte 2",
+        content: "Informations détaillées sur la carte 2. Utile pour du contenu plus long."
+      },
+      {
+        title: "Carte 3",
+        content: "Texte explicatif de la carte 3. On peut aussi ajouter des vidéos ici."
+      },
+      {
+        title: "Carte 4",
+        content: "Dernière carte. On peut naviguer en boucle si on veut."
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function openPopup(index) {
+      currentIndex = index;
+      updatePopupContent();
+      popup.style.display = 'flex';
+    }
+
+    function closePopup() {
+      popup.style.display = 'none';
+    }
+
+    function updatePopupContent() {
+      const card = cards[currentIndex];
+      popupBody.innerHTML = `<h2>${card.title}</h2><p>${card.content}</p>`;
+    }
+
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updatePopupContent();
+    }
+
+    function prevCard() {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      updatePopupContent();
+    }
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        // Ajoute la classe zoom, puis ouvre le popup après l'anim
+        card.classList.add('zoom-animation');
+        setTimeout(() => {
+          card.classList.remove('zoom-animation');
+          openPopup(parseInt(card.dataset.index));
+        }, 300);
+      });
+    });
+
+    // Fermer popup si clic en dehors
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) closePopup();
+    });
+  </script>
+
 </body>
 </html>
 
