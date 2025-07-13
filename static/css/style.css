@@ -211,29 +211,29 @@ section {
     }
 
 .projects {
-  background: #333;
-  height: 100vh; /* pleine hauteur */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centre verticalement */
-  align-items: center;     /* centre horizontalement */
-  gap: 2rem; /* espace entre titre et cartes */
-  padding: 0 2rem; /* optionnel, un peu de marge latérale */
+  position: relative;  /* pour que .header-animation-fullwidth position absolute soit relatif à cette section */
+  padding-top: 0;      /* enlever tout padding */
+  margin-top: 0;       /* enlever toute marge */
+  overflow: visible;   /* pour que les ondes animées ne soient pas coupées */
 }
 
 .projects h1 {
   margin: 0; /* supprimer marges par défaut */
 }
 
-
+/* Animation full largeur, collée en haut */
 .header-animation-fullwidth {
-  position: relative;
+  position: absolute;  /* positionné par rapport à .projects */
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 120px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #0a0a0a;
+  z-index: 10;  /* au-dessus */
 }
 
 /* Conteneur image au centre, au-dessus des ondes */
