@@ -218,12 +218,31 @@
     const waveRight = document.querySelector('.wave-right-full');
     const cards = document.querySelectorAll('.card');
 
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for(let i=0; i<6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
     cards.forEach(card => {
       card.addEventListener('mouseenter', () => {
+        const randomColor = getRandomColor();
         centerImage.classList.add('vibrate');
+
+        
+      // On modifie la couleur des ondes (en remplaçant le stroke)
+      waveLeft.style.background = waveLeft.style.background.replace(/stroke%3D%22(.*?)%22/, `stroke%3D%22${encodeURIComponent(randomColor)}%22`);
+      waveRight.style.background = waveRight.style.background.replace(/stroke%3D%22(.*?)%22/, `stroke%3D%22${encodeURIComponent(randomColor)}%22`);
       });
       card.addEventListener('mouseleave', () => {
         centerImage.classList.remove('vibrate');
+
+            // On remet la couleur blanche par défaut
+      waveLeft.style.background = waveLeft.style.background.replace(/stroke%3D%22(.*?)%22/, 'stroke%3D%22white%22');
+      waveRight.style.background = waveRight.style.background.replace(/stroke%3D%22(.*?)%22/, 'stroke%3D%22white%22');
       });
     });
   });
