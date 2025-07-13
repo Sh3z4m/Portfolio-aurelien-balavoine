@@ -234,7 +234,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0a0a; /* couleur de fond pour bien voir les ondes */
 }
 
 /* Conteneur image au centre, au-dessus des ondes */
